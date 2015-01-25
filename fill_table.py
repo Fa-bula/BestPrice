@@ -12,12 +12,6 @@ class institutions_filler(object):
 			if 'shop' in institution[1]:
 				self.shops.append(institution)
 
-def change_apostroph(str):
-	index = find(str, "'")
-	while index != -1:
-		str = str[:index] + '`' + str[index + 1:]
-		index = find(str, "'")
-
 # instantiate counter and parser and start parsing
 counter = institutions_filler()
 p = OSMParser(concurrency=4, nodes_callback=counter.fill_institutions)
